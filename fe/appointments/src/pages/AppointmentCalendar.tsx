@@ -3,7 +3,8 @@ import {Appointment} from "../types/Types";
 import axios from "axios"
 import {Calendar} from "antd";
 import moment from "moment";
-import {Col, Descriptions, Popover, Tag} from "antd/es";
+import {Popover, Tag} from "antd/es";
+import {BASE_URL} from "../App";
 
 interface State {
     appointments: Appointment[]
@@ -76,7 +77,7 @@ export class AppointmentCalendar extends React.Component<{}, State> {
     }
 
     async getAppointmentsForCalendar(): Promise<Appointment[]> {
-        let resp = await axios.get<Appointment[]>('http://localhost:8080/api/v1/calendar/appointments')
+        let resp = await axios.get<Appointment[]>(`${BASE_URL}/calendar/appointments`)
         return resp.data;
     }
 }

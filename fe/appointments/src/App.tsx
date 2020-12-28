@@ -6,6 +6,8 @@ import {EditAppointment} from "./pages/EditAppointment";
 import 'antd/dist/antd.css';
 import {AppointmentCalendar} from "./pages/AppointmentCalendar"; // or 'antd/dist/antd.less'
 
+export const BASE_URL = 'http://localhost:8081/api/v1'
+
 function App() {
   return (
     <div className="App">

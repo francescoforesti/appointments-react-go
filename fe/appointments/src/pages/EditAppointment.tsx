@@ -3,6 +3,7 @@ import {Appointment} from "../types/Types";
 import axios from "axios";
 import {RouteComponentProps} from "react-router-dom";
 import {AppointmentEditor} from "../components/AppointmentEditor";
+import {BASE_URL} from "../App";
 
 interface Parameters {
     id?: string
@@ -31,16 +32,16 @@ export class EditAppointment extends React.Component<RouteComponentProps<Paramet
     }
 
     private async getAppointment(id: number) {
-        let resp = await axios.get<Appointment>('http://localhost:8080/api/v1/appointments/' + id)
+        let resp = await axios.get<Appointment>(`${BASE_URL}/appointments/${id}`)
         return resp.data;
     }
 
     private async save(item: Appointment) {
-        await axios.post('http://localhost:8080/api/v1/appointments/', item)
+        await axios.post(`${BASE_URL}/appointments/`, item)
     }
 
     private async update(item: Appointment) {
-        await axios.put<Appointment>('http://localhost:8080/api/v1/appointments/' + this.id, item)
+        await axios.put<Appointment>(`${BASE_URL}/appointments/` + this.id, item)
     }
 
     async componentDidMount() {
