@@ -1,0 +1,24 @@
+GET http://localhost:8080/api/v1/appointments
+
+###
+
+POST http://localhost:8080/api/v1/appointments
+Content-Type: application/json
+
+{
+  "description": "my second appointment",
+  "recurring": "DAILY",
+  "reminder": true,
+  "start": "2021-01-01T16:00:00+01:00",
+  "end": "2021-01-08T16:00:00+01:00"
+}
+
+###
+DELETE http://localhost:8080/api/v1/appointments/4
+
+###
+
+OPTIONS http://localhost:8080/api/v1/appointments
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: origin, content-type
+Origin: http://localhost:3000
